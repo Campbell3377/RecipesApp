@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ad6d14f5-7089-4c13-9ce3-6346339475d1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://webstrar192.fulton.asu.edu/page3/CreateRecipeService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CreateRecipeService.wsdl" MetadataType="Wsdl" ID="b53add9f-11a9-44a6-8062-f4cea85980c0" SourceId="1" SourceUrl="http://webstrar192.fulton.asu.edu/page3/CreateRecipeService.svc?wsdl" />
+    <MetadataFile FileName="CreateRecipeService.xsd" MetadataType="Schema" ID="a47f2457-8258-4cbf-a6f3-dff060878f90" SourceId="1" SourceUrl="http://webstrar192.fulton.asu.edu/page3/CreateRecipeService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CreateRecipeService.disco" MetadataType="Disco" ID="0769f75a-fc41-4c88-9e38-7469cad6db81" SourceId="1" SourceUrl="http://webstrar192.fulton.asu.edu/page3/CreateRecipeService.svc?disco" />
+    <MetadataFile FileName="CreateRecipeService1.xsd" MetadataType="Schema" ID="37b8cf89-246a-4e27-91c9-e294774f6ab6" SourceId="1" SourceUrl="http://webstrar192.fulton.asu.edu/page3/CreateRecipeService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CreateRecipeService2.xsd" MetadataType="Schema" ID="8494a287-207e-4616-b325-9cd29ceaeb87" SourceId="1" SourceUrl="http://webstrar192.fulton.asu.edu/page3/CreateRecipeService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

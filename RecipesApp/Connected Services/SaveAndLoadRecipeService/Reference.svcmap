@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3e53627e-a252-4559-a9eb-6423095ea1cf" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://webstrar192.fulton.asu.edu/page3/SaveAndLoadRecipeService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SaveAndLoadRecipeService.xsd" MetadataType="Schema" ID="76565e9b-4f7f-437c-af9d-525f735411a1" SourceId="1" SourceUrl="http://webstrar192.fulton.asu.edu/page3/SaveAndLoadRecipeService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SaveAndLoadRecipeService.disco" MetadataType="Disco" ID="66a02493-e66a-4284-afec-8c171a10f437" SourceId="1" SourceUrl="http://webstrar192.fulton.asu.edu/page3/SaveAndLoadRecipeService.svc?disco" />
+    <MetadataFile FileName="SaveAndLoadRecipeService1.xsd" MetadataType="Schema" ID="5b115ed4-5837-4390-b1c1-e99631b568f6" SourceId="1" SourceUrl="http://webstrar192.fulton.asu.edu/page3/SaveAndLoadRecipeService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SaveAndLoadRecipeService2.xsd" MetadataType="Schema" ID="d1fd7df9-4d1f-4a37-b24f-fcdea8a180c3" SourceId="1" SourceUrl="http://webstrar192.fulton.asu.edu/page3/SaveAndLoadRecipeService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SaveAndLoadRecipeService.wsdl" MetadataType="Wsdl" ID="85d15441-15f4-4293-9918-599e91576275" SourceId="1" SourceUrl="http://webstrar192.fulton.asu.edu/page3/SaveAndLoadRecipeService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

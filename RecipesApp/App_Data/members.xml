@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<members>
+	<member>
+		<username>seanc</username>
+		<hash>qyHwz/w8zGYPbcTjEcy2AykYddDS/qloFWBYxtqZaXw=</hash>
+		<salt>QAnsQgCs7e+qQTZ2WDEzzQ==</salt>
+	</member>
+	<member>
+		<username>test</username>
+		<hash>2FpDM/HqQ01KbvHs5vGosnC/u+6MHiGD3AcOD6mvMrI=</hash>
+		<salt>KNbyI5uwOGYv2zRiS0yyRg==</salt>
+	</member>
+</members>
