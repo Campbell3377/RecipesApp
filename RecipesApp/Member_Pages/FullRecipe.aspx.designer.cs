@@ -24,15 +24,6 @@ namespace RecipesApp
         protected global::System.Web.UI.WebControls.Button Back_Button2;
 
         /// <summary>
-        /// ButtonDefault control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonDefault;
-
-        /// <summary>
         /// RecipeName control.
         /// </summary>
         /// <remarks>
@@ -49,6 +40,15 @@ namespace RecipesApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image RecipeImage;
+
+        /// <summary>
+        /// BtnSaveRecipe control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnSaveRecipe;
 
         /// <summary>
         /// ServingCount control.
@@ -85,5 +85,32 @@ namespace RecipesApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl RecipeSummary;
+
+        /// <summary>
+        /// nutritionImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image nutritionImage;
+
+        /// <summary>
+        /// nutritionWidgetImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image nutritionWidgetImage;
+
+        /// <summary>
+        /// Result control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Result;
     }
 }

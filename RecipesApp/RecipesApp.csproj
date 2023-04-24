@@ -116,6 +116,7 @@
     <Content Include="Member_Pages\MealPlanner.aspx" />
     <Content Include="Member_Pages\CreateRecipe.aspx" />
     <Content Include="CreateUser.ascx" />
+    <Content Include="Member_Pages\Browse.aspx" />
     <Content Include="Staff_Pages\Staff.aspx" />
     <Content Include="Staff_Pages\AccessDenied.aspx" />
     <Content Include="XMLFileUtils.aspx" />
@@ -315,6 +316,12 @@
     </Compile>
     <Compile Include="Member_Pages\FullRecipe.aspx.designer.cs">
       <DependentUpon>FullRecipe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member_Pages\Browse.aspx.cs">
+      <DependentUpon>Browse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member_Pages\Browse.aspx.designer.cs">
+      <DependentUpon>Browse.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member_Pages\SaveAndLoadRecipes.aspx.cs">
       <DependentUpon>SaveAndLoadRecipes.aspx</DependentUpon>

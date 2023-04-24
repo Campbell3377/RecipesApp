@@ -11,6 +11,41 @@ namespace RecipesApp
 {
     public partial class LoginPage : System.Web.UI.Page
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            HttpCookie loginCookie = Request.Cookies["loginCookie"];
+            if (loginCookie != null)
+            {
+                // If the loginCookie already exists, check to automatically login
+                string user = loginCookie["username"];
+                string password = loginCookie["password"];
+                textboxUser.Text = user;
+                textboxPass.Text = password;
+
+                /*Hash hash = new Hash();
+                bool result = hash.AuthenticateUser(user, password);
+
+                if (hash.AuthenticateUser(user, password))  
+                {
+
+                    FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(
+                    1, 
+                    user,  
+                    DateTime.Now,  
+                    DateTime.Now.AddMinutes(30), 
+                    false,  
+                    ""  
+                    );
+
+                    HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(ticket));
+                    Response.Cookies.Add(cookie);
+
+                    Session["username"] = user;
+
+                    FormsAuthentication.RedirectFromLoginPage(user, false);
+                }*/
+            }
+        }
         protected void LoginFunc(object sender, EventArgs e)
         {
             string user = textboxUser.Text;

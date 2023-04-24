@@ -6,46 +6,45 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml.Serialization;
+using RecipesApp.SaveAndLoadRecipeService;
 
 namespace RecipesApp
 {
-    
-
-    public class RecipePreview
+    [XmlRoot(ElementName = "recipes")]
+    public class RecipesDecode
     {
-        private string title;
-        private string imageUrl;
-        private string id;    //Will be used for 'See full recipe'
-        public RecipePreview(string title, string image, int id)
-        {
-            this.title = title;
-            this.imageUrl = "https://spoonacular.com/recipeImages/" + image;
-            this.id = id.ToString();
-        }
-        public string Title
-        {
-            get
-            {
-                return title;
-            }
-        }
-        public string ImageUrl
-        {
-            get
-            {
-                return imageUrl;
-            }
-        }
-        public string Id
-        {
-            get
-            {
-                return id;
-            }
-        }
+        [XmlElement(ElementName = "offset")]
+        public int Offset { get; set; }
+
+        [XmlElement(ElementName = "number")]
+        public int Number { get; set; }
+
+        [XmlElement(ElementName = "results")]
+        public List<RecipeDecode> Results { get; set; }
+
+        [XmlElement(ElementName = "totalResults")]
+        public int TotalResults { get; set; }
     }
 
-    public partial class RecipeBrowse : System.Web.UI.Page
+    public class RecipeDecode
+    {
+        [XmlElement(ElementName = "id")]
+        public int id { get; set; }
+
+        [XmlElement(ElementName = "title")]
+        public string title { get; set; }
+
+        [XmlElement(ElementName = "image")]
+        public string image { get; set; }
+
+        [XmlElement(ElementName = "imageType")]
+        public string imageType { get; set; }
+
+        // Add other properties here as needed
+    }
+
+
+    public partial class Browse : System.Web.UI.Page
     {
         protected void Back_Click(object sender, EventArgs e)
         {
@@ -113,19 +112,24 @@ namespace RecipesApp
 
             Console.WriteLine(id);
             HttpContext.Current.Session["recipeId"] = id;
-            Response.Redirect("TryItFullRecipe.aspx");
+            Response.Redirect("FullRecipe.aspx");
         }
         protected void MyBtnHandler2(Object sender, EventArgs e)
         {
+            string user = (string)Session["username"];
             Button btn = (Button)sender;
+            int id = Int32.Parse(btn.CommandArgument);
+            if (Session["recipeId"] != null) { id = Int32.Parse((string)Session["recipeId"]); }
 
-            //RecipeSearch.Service1Client recipeSearch = new RecipeSearch.Service1Client();
+            string path = "" + user + ".xml";
+            
 
-            string id = btn.CommandArgument;
+            if (id != 0)
+            {
+                SaveAndLoadRecipeServiceClient saveAndLoadRecipe = new SaveAndLoadRecipeServiceClient();
+                saveAndLoadRecipe.SaveRecipesToXml(id, path);
+            }
 
-            Console.WriteLine(id);
-            HttpContext.Current.Session["recipeId"] = id;
-            Response.Redirect("TryItNutrition.aspx");
         }
     }
 }

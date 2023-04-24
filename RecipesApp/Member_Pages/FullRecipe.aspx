@@ -2,13 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <br />
-    <!-- <asp:Button ID="Back_Button2" runat="server" OnClick="Back_Click" Text="Back to Service Index" /> -->
-    <div class="jumbotron">
-        <h1>Full Recipe</h1>
-        <p class="lead">Using recipe id from Recipe Search/Browse (or default if one is not selected), get full recipe information</p>
-        <asp:Button ID="ButtonDefault" runat="server" Text="See Full Recipe" OnClick="ButtonDefault_Click" />
-        <br />
-    </div>
+    <asp:Button ID="Back_Button2" runat="server" OnClick="Back_Click" Text="Back to Default Page" />
 
     <div class="jumbotron"">
         <div style="display:flex;flex-direction:column;align-items:center;">
@@ -16,6 +10,8 @@
             <div>
                 <h2 id="RecipeName" runat="server"></h2>
                 <asp:Image ID="RecipeImage" runat="server" />
+                <br />
+                <asp:Button ID="BtnSaveRecipe" runat="server" Text="Save Recipe" OnClick="BtnSaveRecipe_Click" />
                 <p>Serves: <span id="ServingCount" runat="server"></span></p>
                 <p>Ready in: <span id="ReadyInMinutes" runat="server"></span> minutes</p>
 
@@ -28,7 +24,20 @@
 
                 <h3>Summary</h3>
                 <p id="RecipeSummary" runat="server"></p>
+                <br />
+                <span>
+                    <asp:Image ID="nutritionImage" Width="35%" ImageUrl="" runat="server"></asp:Image>
+                    <asp:Image ID="nutritionWidgetImage" Width="64%" ImageUrl="" runat="server"></asp:Image>
+                </span>
             </div>
+  
+        </div>
+    </div>
+
+    <div class="jumbotron"">
+        <div style="display:flex;flex-direction:column;align-items:center;">
+            <h1>Similar Recipes</h1>
+            <asp:label ID="Result" runat="server" Text=""></asp:label>
   
         </div>
     </div>

@@ -36,14 +36,11 @@
             <asp:Button ID="BtnLogin" runat="server" Text="Login" OnClick="BtnLogin_Click" />
             <asp:Button ID="BtnCreate" runat="server" Text="Create Account" OnClick="BtnCreate_Click" />
             <br />
-            <asp:Button ID="Button1" runat="server" Text="Member Pages" />
+            <asp:Button ID="Button1" runat="server" Text="Member Pages" OnClick="Button1_Click" />
             <asp:Button ID="Button2" runat="server" Text="Staff Pages" OnClick="Button2_Click" />
         </div>
         <div class="col-md-4">
             <h2>Test Cases (Services)</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
             <h3>1. Browse/Search Recipes</h3>
             <p>Test Case: Search (string), +multiple dropdowns for filtered result, all fields are optional, simply search to populate responses</p>
 

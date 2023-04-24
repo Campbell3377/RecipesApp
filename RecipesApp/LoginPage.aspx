@@ -66,7 +66,7 @@
             Username:</label>
 			<asp:TextBox ID="textboxUser" runat="server"></asp:TextBox>
 			<label for="textboxPass">Password:</label>
-			<asp:TextBox ID="textboxPass" runat="server" TextMode="Password"></asp:TextBox>
+			<asp:TextBox ID="textboxPass" runat="server" ></asp:TextBox> <!-- TextMode="Password" -->
 			<asp:CheckBox ID="CheckBoxSaveLogin" runat="server" Text="Save Login Information"/>
 			<br />
 			<asp:Button id="loginbutton" type="submit" runat="server" OnClick="LoginFunc" Text="Login"></asp:Button>
