@@ -61,13 +61,18 @@
 	</style>
     <form id="form1" runat="server">
         <div class="login-container">
-			<label for="textboxUser">Username:</label>
+			<label for="textboxUser">
+            <br />
+            Username:</label>
 			<asp:TextBox ID="textboxUser" runat="server"></asp:TextBox>
 			<label for="textboxPass">Password:</label>
 			<asp:TextBox ID="textboxPass" runat="server" TextMode="Password"></asp:TextBox>
 			<asp:CheckBox ID="CheckBoxSaveLogin" runat="server" Text="Save Login Information"/>
 			<br />
 			<asp:Button id="loginbutton" type="submit" runat="server" OnClick="LoginFunc" Text="Login"></asp:Button>
+			<label for="textboxUser">
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Logout" />
+            </label>
 			<p><span>For testing purposes, if you do not know a user login, you can enter "test", "test" to login</span></p>
         </div>
     </form>

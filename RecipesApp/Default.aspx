@@ -37,7 +37,7 @@
             <asp:Button ID="BtnCreate" runat="server" Text="Create Account" OnClick="BtnCreate_Click" />
             <br />
             <asp:Button ID="Button1" runat="server" Text="Member Pages" />
-            <asp:Button ID="Button2" runat="server" Text="Staff Pages" />
+            <asp:Button ID="Button2" runat="server" Text="Staff Pages" OnClick="Button2_Click" />
         </div>
         <div class="col-md-4">
             <h2>Test Cases (Services)</h2>

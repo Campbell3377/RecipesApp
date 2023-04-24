@@ -116,7 +116,8 @@
     <Content Include="Member_Pages\MealPlanner.aspx" />
     <Content Include="Member_Pages\CreateRecipe.aspx" />
     <Content Include="CreateUser.ascx" />
-    <Content Include="Staff.aspx" />
+    <Content Include="Staff_Pages\Staff.aspx" />
+    <Content Include="Staff_Pages\AccessDenied.aspx" />
     <Content Include="XMLFileUtils.aspx" />
     <None Include="Connected Services\CreateRecipeService\CreateRecipeService.disco" />
     <None Include="Connected Services\CreateRecipeService\configuration91.svcinfo" />
@@ -364,12 +365,19 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="Staff.aspx.cs">
+    <Compile Include="Staff_Pages\Staff.aspx.cs">
       <DependentUpon>Staff.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Staff.aspx.designer.cs">
+    <Compile Include="Staff_Pages\Staff.aspx.designer.cs">
       <DependentUpon>Staff.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Staff_Pages\AccessDenied.aspx.cs">
+      <DependentUpon>AccessDenied.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff_Pages\AccessDenied.aspx.designer.cs">
+      <DependentUpon>AccessDenied.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserAuth.aspx.cs">
       <DependentUpon>UserAuth.aspx</DependentUpon>
@@ -405,6 +413,13 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Staff_Pages\Web.config" />
+    <None Include="Staff_Pages\Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Staff_Pages\Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

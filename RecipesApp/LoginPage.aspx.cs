@@ -52,9 +52,26 @@ namespace RecipesApp
                 HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(ticket));
                 Response.Cookies.Add(cookie);
 
+                Session["username"] = user;
+                Session["password"] = password;
+
                 FormsAuthentication.RedirectFromLoginPage(user, false);
             }
             //else loginResult.InnerText = "Incorrect Login Information.";
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            // Clear authentication cookie
+            FormsAuthentication.SignOut();
+
+            // Expire authentication cookie
+            HttpCookie authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, "");
+            authCookie.Expires = DateTime.Now.AddYears(-1);
+            Response.Cookies.Add(authCookie);
+
+            Session["username"] = "";
+
         }
     }
 }

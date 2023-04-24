@@ -14,7 +14,7 @@ namespace RecipesApp
         {
             if (!IsStaffMember())
             {
-                Response.Redirect("LoginPage.aspx");
+                Response.Redirect("../LoginPage");
                 return;
             }
 
@@ -49,16 +49,18 @@ namespace RecipesApp
         private bool IsStaffMember()
         {
             HttpCookie cookie = Request.Cookies["loginCookie"];
+            string user = (string)Session["username"];
+            string pass = (string)Session["password"];
 
-            if (cookie != null)
+            if (user != null && user != "")
             {
-                string username = cookie["Username"];
-                string password = cookie["Password"];
+                //string username = cookie["Username"];
+                //string password = cookie["Password"];
 
                 string staffXmlPath = Server.MapPath("~/App_Data/staff.xml");
                 XMLManipulation xmlManipulation = new XMLManipulation(staffXmlPath);
 
-                var staffMembers = xmlManipulation.FindElements($"//staffMember[username='{username}' and password='{password}']");
+                var staffMembers = xmlManipulation.FindElements($"//staffMember[username='{user}' and password='{pass}']");
 
                 //Check if any matching staff members were found
                 if (staffMembers.Length > 0)

@@ -23,5 +23,10 @@ namespace RecipesApp
         {
             Response.Redirect("./UserAuth");
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("./Staff_Pages/Staff");
+        }
     }
 }
