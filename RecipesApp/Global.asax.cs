@@ -18,19 +18,19 @@ namespace RecipesApp
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
-        void Application_Error(object sender, EventArgs e)
-        {
-            //Get the exception object
-            Exception exception = Server.GetLastError();
+        //void Application_Error(object sender, EventArgs e)
+        //{
+        //    //Get the exception object
+        //    Exception exception = Server.GetLastError();
 
-            //Log the error
-            Console.WriteLine($"Error: {exception.Message}");
+        //    //Log the error
+        //    Console.WriteLine($"Error: {exception.Message}");
 
-            //Clear the error
-            Server.ClearError();
+        //    //Clear the error
+        //    Server.ClearError();
 
-            //Redirect to a custom error page
-            Response.Redirect("~/Error.aspx");
-        }
+        //    //Redirect to a custom error page
+        //    Response.Redirect("~/Error.aspx");
+        //}
     }
 }

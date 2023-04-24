@@ -31,6 +31,12 @@ namespace RecipesApp
                 xmlDoc.Save(filePath);
             }
 
+            public IEnumerable<XElement> GetAllElements(string elementName)
+            {
+                var xmlDoc = LoadXmlFile();
+                return xmlDoc.Descendants(elementName);
+            }
+
             public void AddElement(string parentElementName, string elementName, string elementValue)
             {
                 var xmlDoc = LoadXmlFile();

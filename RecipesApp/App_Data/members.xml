@@ -1,13 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <members>
-	<member>
-		<username>seanc</username>
-		<hash>qyHwz/w8zGYPbcTjEcy2AykYddDS/qloFWBYxtqZaXw=</hash>
-		<salt>QAnsQgCs7e+qQTZ2WDEzzQ==</salt>
-	</member>
-	<member>
-		<username>test</username>
-		<hash>2FpDM/HqQ01KbvHs5vGosnC/u+6MHiGD3AcOD6mvMrI=</hash>
-		<salt>KNbyI5uwOGYv2zRiS0yyRg==</salt>
-	</member>
+  <member>
+    <username>seanc</username>
+    <hash>qyHwz/w8zGYPbcTjEcy2AykYddDS/qloFWBYxtqZaXw=</hash>
+    <salt>QAnsQgCs7e+qQTZ2WDEzzQ==</salt>
+  </member>
+  <member>
+    <username>test</username>
+    <hash>2FpDM/HqQ01KbvHs5vGosnC/u+6MHiGD3AcOD6mvMrI=</hash>
+    <salt>KNbyI5uwOGYv2zRiS0yyRg==</salt>
+  </member>
+  <member>
+    <username>bmoler</username>
+    <hash>ICg+QES+6ObP6piZhGc9b6D71aU1rSMlhP+jALJAvyI=</hash>
+    <salt>IMkEZPtaPoei0GuzxfYiXw==</salt>
+  </member>
+  <member>
+    <username>TA</username>
+    <hash>3WUOyrMo5HH6W0sTjo2r36NKw6BB/2UZm2SswoGR5kw=</hash>
+    <salt>372/1jdOZ8PbIAKPMb6H2g==</salt>
+  </member>
 </members>

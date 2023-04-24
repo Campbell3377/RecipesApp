@@ -53,6 +53,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -110,10 +111,12 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="App_Data\members.xml" />
+    <Content Include="App_Data\staff.xml" />
     <Content Include="Error.aspx" />
     <Content Include="Member_Pages\MealPlanner.aspx" />
     <Content Include="Member_Pages\CreateRecipe.aspx" />
     <Content Include="CreateUser.ascx" />
+    <Content Include="Staff.aspx" />
     <Content Include="XMLFileUtils.aspx" />
     <None Include="Connected Services\CreateRecipeService\CreateRecipeService.disco" />
     <None Include="Connected Services\CreateRecipeService\configuration91.svcinfo" />
@@ -360,6 +363,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Staff.aspx.cs">
+      <DependentUpon>Staff.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff.aspx.designer.cs">
+      <DependentUpon>Staff.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserAuth.aspx.cs">
       <DependentUpon>UserAuth.aspx</DependentUpon>
