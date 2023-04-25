@@ -26,6 +26,10 @@
         <asp:TextBox ID="fileName" runat="server"></asp:TextBox>
         <br />
         <br />
+        <div>Recipe name:</div>
+        <asp:TextBox ID="recipeNameTextBox" runat="server"></asp:TextBox>
+        <br />
+        <br />
         <asp:Button ID="AddToRecipe" runat="server" Text="Add to Recipe" OnClick="AddToRecipe_Click" />
         <br />
         <br />

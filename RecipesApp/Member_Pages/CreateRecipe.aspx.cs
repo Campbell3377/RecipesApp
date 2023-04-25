@@ -22,7 +22,7 @@ namespace RecipesApp
         {
             string query = search.Text;
 
-            List<Ingredient> products = createRecipe.SearchProducts(query).ToList();
+            List<Ingredient> ingredients = createRecipe.SearchIngredients(query).ToList();
 
             string display = "";
 
@@ -30,9 +30,9 @@ namespace RecipesApp
 
             display += "<table><tr><th>Number</th><th>Name</th><th>ID</th></tr>";
 
-            foreach (Ingredient product in products)
+            foreach (Ingredient ingredient in ingredients)
             {
-                display += "<tr><td>" + i + "." + "</td><td>" + product.Title + "</td><td>" + product.Id + "</td>";
+                display += "<tr><td>" + i + "." + "</td><td>" + ingredient.Name + "</td><td>" + ingredient.Id + "</td>";
                 i++;
             }
 
@@ -45,25 +45,33 @@ namespace RecipesApp
         {
             string file = fileName.Text;
             int productID = Int32.Parse(productId.Text);
+            string recipeName = recipeNameTextBox.Text;
 
-            createRecipe.AddToRecipe(file, productID);
+            createRecipe.AddToRecipe(file, productID, recipeName);
         }
 
         protected void GetCreatedRecipe_Click(object sender, EventArgs e)
         {
             string file = loadFileName.Text;
 
-            List<Ingredient> ingredients = createRecipe.GetCreatedRecipes(file).ToList();
+            List<Recipe> recipes = createRecipe.GetCreatedRecipes(file).ToList();
 
             string display = "";
 
             int i = 1;
 
-            display = "<table><tr><th>Number</th><th>Name</th><th>ID</th></tr>";
+            display = "<table><tr><th>Number</th><th>Recipe</th><th>Ingredients</th></tr>";
 
-            foreach (Ingredient ingredient in ingredients)
+            foreach (Recipe recipe in recipes)
             {
-                display += "<tr><td>" + i + "." + "</td><td>" + ingredient.Title + "</td><td>" + ingredient.Id + "</td></tr>";
+                display += "<tr><td>" + i + "." + "</td><td>" + recipe.Name + "</td><td>";
+
+                foreach (Ingredient ingredient in recipe.Ingredients)
+                {
+                    display += ingredient.Name + " (" + ingredient.Id + "), ";
+                }
+
+                display = display.TrimEnd(',', ' ') + "</td></tr>";
                 i++;
             }
 
@@ -71,5 +79,6 @@ namespace RecipesApp
 
             LoadResult.Text = display;
         }
+
     }
 }

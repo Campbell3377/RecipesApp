@@ -112,7 +112,21 @@
     <Content Include="About.aspx" />
     <Content Include="App_Data\members.xml" />
     <Content Include="App_Data\staff.xml" />
+    <None Include="Connected Services\CreateRecipeService\CreateRecipeService.disco" />
+    <None Include="Connected Services\CreateRecipeService\configuration91.svcinfo" />
+    <None Include="Connected Services\CreateRecipeService\configuration.svcinfo" />
+    <Content Include="Connected Services\CreateRecipeService\RecipesApp.CreateRecipeService.Ingredient.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CreateRecipeService\RecipesApp.CreateRecipeService.Recipe.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\CreateRecipeService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Error.aspx" />
+    <Content Include="Member_Pages\Account.aspx" />
     <Content Include="Member_Pages\MealPlanner.aspx" />
     <Content Include="Member_Pages\CreateRecipe.aspx" />
     <Content Include="CreateUser.ascx" />
@@ -120,15 +134,15 @@
     <Content Include="Staff_Pages\Staff.aspx" />
     <Content Include="Staff_Pages\AccessDenied.aspx" />
     <Content Include="XMLFileUtils.aspx" />
-    <None Include="Connected Services\CreateRecipeService\CreateRecipeService.disco" />
-    <None Include="Connected Services\CreateRecipeService\configuration91.svcinfo" />
-    <None Include="Connected Services\CreateRecipeService\configuration.svcinfo" />
-    <Content Include="Connected Services\CreateRecipeService\RecipesApp.CreateRecipeService.Ingredient.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Connected Services\CreateRecipeService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
+    <None Include="Connected Services\CreateRecipeService\CreateRecipeService.wsdl" />
+    <None Include="Connected Services\CreateRecipeService\CreateRecipeService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CreateRecipeService\CreateRecipeService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CreateRecipeService\CreateRecipeService2.xsd">
+      <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\RecipeSearchWeb\Service1.disco" />
     <None Include="Connected Services\RecipeSearchWeb\configuration91.svcinfo" />
@@ -172,16 +186,6 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <None Include="Connected Services\CreateRecipeService\CreateRecipeService.wsdl" />
-    <None Include="Connected Services\CreateRecipeService\CreateRecipeService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\CreateRecipeService\CreateRecipeService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\CreateRecipeService\CreateRecipeService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Connected Services\SaveAndLoadRecipeService\SaveAndLoadRecipeService.wsdl" />
     <None Include="Connected Services\SaveAndLoadRecipeService\SaveAndLoadRecipeService.xsd">
       <SubType>Designer</SubType>
@@ -280,6 +284,13 @@
     </Compile>
     <Compile Include="Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member_Pages\Account.aspx.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member_Pages\Account.aspx.designer.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member_Pages\MealPlanner.aspx.cs">
       <DependentUpon>MealPlanner.aspx</DependentUpon>

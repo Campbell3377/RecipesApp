@@ -26,7 +26,10 @@ namespace RecipesApp.CreateRecipeService {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TitleField;
+        private string ImageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -52,14 +55,88 @@ namespace RecipesApp.CreateRecipeService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Title {
+        public string Image {
             get {
-                return this.TitleField;
+                return this.ImageField;
             }
             set {
-                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
-                    this.TitleField = value;
-                    this.RaisePropertyChanged("Title");
+                if ((object.ReferenceEquals(this.ImageField, value) != true)) {
+                    this.ImageField = value;
+                    this.RaisePropertyChanged("Image");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Recipe", Namespace="http://schemas.datacontract.org/2004/07/WSDL_Services")]
+    [System.SerializableAttribute()]
+    public partial class Recipe : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RecipesApp.CreateRecipeService.Ingredient[] IngredientsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RecipesApp.CreateRecipeService.Ingredient[] Ingredients {
+            get {
+                return this.IngredientsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IngredientsField, value) != true)) {
+                    this.IngredientsField = value;
+                    this.RaisePropertyChanged("Ingredients");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
                 }
             }
         }
@@ -78,23 +155,23 @@ namespace RecipesApp.CreateRecipeService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CreateRecipeService.ICreateRecipeService")]
     public interface ICreateRecipeService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICreateRecipeService/SearchProducts", ReplyAction="http://tempuri.org/ICreateRecipeService/SearchProductsResponse")]
-        RecipesApp.CreateRecipeService.Ingredient[] SearchProducts(string query);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICreateRecipeService/SearchIngredients", ReplyAction="http://tempuri.org/ICreateRecipeService/SearchIngredientsResponse")]
+        RecipesApp.CreateRecipeService.Ingredient[] SearchIngredients(string query);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICreateRecipeService/SearchProducts", ReplyAction="http://tempuri.org/ICreateRecipeService/SearchProductsResponse")]
-        System.Threading.Tasks.Task<RecipesApp.CreateRecipeService.Ingredient[]> SearchProductsAsync(string query);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICreateRecipeService/AddToRecipe", ReplyAction="http://tempuri.org/ICreateRecipeService/AddToRecipeResponse")]
-        void AddToRecipe(string fileName, int productId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICreateRecipeService/SearchIngredients", ReplyAction="http://tempuri.org/ICreateRecipeService/SearchIngredientsResponse")]
+        System.Threading.Tasks.Task<RecipesApp.CreateRecipeService.Ingredient[]> SearchIngredientsAsync(string query);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICreateRecipeService/AddToRecipe", ReplyAction="http://tempuri.org/ICreateRecipeService/AddToRecipeResponse")]
-        System.Threading.Tasks.Task AddToRecipeAsync(string fileName, int productId);
+        void AddToRecipe(string fileName, int ingredientId, string recipeName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICreateRecipeService/AddToRecipe", ReplyAction="http://tempuri.org/ICreateRecipeService/AddToRecipeResponse")]
+        System.Threading.Tasks.Task AddToRecipeAsync(string fileName, int ingredientId, string recipeName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICreateRecipeService/GetCreatedRecipes", ReplyAction="http://tempuri.org/ICreateRecipeService/GetCreatedRecipesResponse")]
-        RecipesApp.CreateRecipeService.Ingredient[] GetCreatedRecipes(string fileName);
+        RecipesApp.CreateRecipeService.Recipe[] GetCreatedRecipes(string fileName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICreateRecipeService/GetCreatedRecipes", ReplyAction="http://tempuri.org/ICreateRecipeService/GetCreatedRecipesResponse")]
-        System.Threading.Tasks.Task<RecipesApp.CreateRecipeService.Ingredient[]> GetCreatedRecipesAsync(string fileName);
+        System.Threading.Tasks.Task<RecipesApp.CreateRecipeService.Recipe[]> GetCreatedRecipesAsync(string fileName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -124,27 +201,27 @@ namespace RecipesApp.CreateRecipeService {
                 base(binding, remoteAddress) {
         }
         
-        public RecipesApp.CreateRecipeService.Ingredient[] SearchProducts(string query) {
-            return base.Channel.SearchProducts(query);
+        public RecipesApp.CreateRecipeService.Ingredient[] SearchIngredients(string query) {
+            return base.Channel.SearchIngredients(query);
         }
         
-        public System.Threading.Tasks.Task<RecipesApp.CreateRecipeService.Ingredient[]> SearchProductsAsync(string query) {
-            return base.Channel.SearchProductsAsync(query);
+        public System.Threading.Tasks.Task<RecipesApp.CreateRecipeService.Ingredient[]> SearchIngredientsAsync(string query) {
+            return base.Channel.SearchIngredientsAsync(query);
         }
         
-        public void AddToRecipe(string fileName, int productId) {
-            base.Channel.AddToRecipe(fileName, productId);
+        public void AddToRecipe(string fileName, int ingredientId, string recipeName) {
+            base.Channel.AddToRecipe(fileName, ingredientId, recipeName);
         }
         
-        public System.Threading.Tasks.Task AddToRecipeAsync(string fileName, int productId) {
-            return base.Channel.AddToRecipeAsync(fileName, productId);
+        public System.Threading.Tasks.Task AddToRecipeAsync(string fileName, int ingredientId, string recipeName) {
+            return base.Channel.AddToRecipeAsync(fileName, ingredientId, recipeName);
         }
         
-        public RecipesApp.CreateRecipeService.Ingredient[] GetCreatedRecipes(string fileName) {
+        public RecipesApp.CreateRecipeService.Recipe[] GetCreatedRecipes(string fileName) {
             return base.Channel.GetCreatedRecipes(fileName);
         }
         
-        public System.Threading.Tasks.Task<RecipesApp.CreateRecipeService.Ingredient[]> GetCreatedRecipesAsync(string fileName) {
+        public System.Threading.Tasks.Task<RecipesApp.CreateRecipeService.Recipe[]> GetCreatedRecipesAsync(string fileName) {
             return base.Channel.GetCreatedRecipesAsync(fileName);
         }
     }

@@ -53,7 +53,9 @@
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/">Member Pages</a></li>
                         <li><a runat="server" href="~/Staff">Staff Pages</a></li>
-
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a id="AccountLink" runat="server" class="nav-link"></a></li>
                     </ul>
                 </div>
             </div>
