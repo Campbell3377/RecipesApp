@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -16,10 +17,10 @@ namespace RecipesApp
         private string title;
         private string imageUrl;
         private string id;    //Will be used for 'See full recipe'
-        public RecipePreview(string title, string image, int id)
+        public RecipePreview(string title, string imageType, int id)
         {
             this.title = title;
-            this.imageUrl = "https://spoonacular.com/recipeImages/" + image;
+            this.imageUrl = "https://spoonacular.com/recipeImages/" + id + "-636x393." + imageType;
             this.id = id.ToString();
         }
         public string Title
@@ -94,7 +95,8 @@ namespace RecipesApp
                 int i = 1;
                 foreach (RecipeDecode r in recipes.Results)
                 {
-                    values.Add(new RecipePreview(r.title, r.image, r.id));
+                    string imageType = Path.GetExtension(r.image).Substring(1);
+                    values.Add(new RecipePreview(r.title, r.imageType, r.id));
                 }
             }
             Repeater1.DataSource = values;
