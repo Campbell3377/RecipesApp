@@ -157,6 +157,8 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\CreateRecipeService\CreateRecipeService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ImageVerifyService\Service.wsdl" />
     <None Include="Connected Services\ImageVerifyService\Service.xsd">
       <SubType>Designer</SubType>
