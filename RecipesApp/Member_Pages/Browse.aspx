@@ -1,6 +1,6 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Browse.aspx.cs" Inherits="RecipesApp.Browse" %>
+﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/SiteMember.Master" AutoEventWireup="true" CodeBehind="Browse.aspx.cs" Inherits="RecipesApp.Browse" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MemberContent" runat="server">
     <br />
     <!-- <asp:Button ID="Back_Button3" runat="server" OnClick="Back_Click" Text="Back to Service Index" /> -->
     <div class="jumbotron">

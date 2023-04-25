@@ -217,6 +217,7 @@
     <None Include="Member_Pages\Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="SiteMember.master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Member_Pages\FullRecipe.aspx" />
     <Content Include="Member_Pages\SaveAndLoadRecipes.aspx" />
@@ -359,6 +360,13 @@
     </Compile>
     <Compile Include="Member_Pages\Nutrition.aspx.designer.cs">
       <DependentUpon>Nutrition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiteMember.master.cs">
+      <DependentUpon>SiteMember.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteMember.master.designer.cs">
+      <DependentUpon>SiteMember.master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Member_Pages\RecipeBrowse.aspx.cs">
