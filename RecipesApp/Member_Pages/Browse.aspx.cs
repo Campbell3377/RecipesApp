@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -93,7 +94,8 @@ namespace RecipesApp
                 int i = 1;
                 foreach (RecipeDecode r in recipes.Results)
                 {
-                    values.Add(new RecipePreview(r.title, r.image, r.id));
+                    string imageType = Path.GetExtension(r.image).Substring(1);
+                    values.Add(new RecipePreview(r.title, imageType, r.id));
                 }
             }
             Repeater1.DataSource = values;

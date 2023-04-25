@@ -53,12 +53,16 @@
 	</style>
 <div class="login-container">
 		<h2>Create User</h2>
-		<form>
+		<!-- <form> -->
 			<label for="textboxUser">Username:</label>
 			<asp:TextBox ID="textboxUser" runat="server"></asp:TextBox>
 			<label for="textboxPass">Password:</label>
 			<asp:TextBox ID="textboxPass" runat="server" TextMode="Password"></asp:TextBox>
-			<asp:Button ID="createButton" type="submit" runat="server" OnClick="Button1_Click" Text="Create"></asp:Button>
+			<br />
+			<label for="textboxVerify">Verify Captcha:</label>
+			<asp:TextBox ID="textboxVerify" runat="server"></asp:TextBox>
+			<p><asp:Image ID="Image1" runat="server" Visible="False" /><asp:Button ID="Button1" runat="server" Text="Get Another Image" OnClick="Button1_Click1" /></p>
+			<asp:Button ID="createButton" type="submit" runat="server" OnClick="Button1_Click" Text="Create Account"></asp:Button>
 			<p><span id="createResult" runat="server"></span></p>
-		</form>
+		<!-- </form> -->
 </div>

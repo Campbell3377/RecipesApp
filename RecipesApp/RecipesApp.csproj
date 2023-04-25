@@ -112,6 +112,21 @@
     <Content Include="About.aspx" />
     <Content Include="App_Data\members.xml" />
     <Content Include="App_Data\staff.xml" />
+    <None Include="Connected Services\ImageVerifyService\Service.disco" />
+    <None Include="Connected Services\ImageVerifyService\configuration91.svcinfo" />
+    <None Include="Connected Services\ImageVerifyService\configuration.svcinfo" />
+    <None Include="Connected Services\ImageVerifyService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Error.aspx" />
+    <Content Include="Member_Pages\MealPlanner.aspx" />
+    <Content Include="Member_Pages\CreateRecipe.aspx" />
+    <Content Include="CreateUser.ascx" />
+    <Content Include="Member_Pages\Browse.aspx" />
+    <Content Include="Staff_Pages\Staff.aspx" />
+    <Content Include="Staff_Pages\AccessDenied.aspx" />
+    <Content Include="XMLFileUtils.aspx" />
     <None Include="Connected Services\CreateRecipeService\CreateRecipeService.disco" />
     <None Include="Connected Services\CreateRecipeService\configuration91.svcinfo" />
     <None Include="Connected Services\CreateRecipeService\configuration.svcinfo" />
@@ -142,6 +157,14 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\CreateRecipeService\CreateRecipeService2.xsd">
+    <None Include="Connected Services\ImageVerifyService\Service.wsdl" />
+    <None Include="Connected Services\ImageVerifyService\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ImageVerifyService\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ImageVerifyService\Service2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\RecipeSearchWeb\Service1.disco" />
@@ -204,6 +227,7 @@
     <None Include="Member_Pages\Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="SiteMember.master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Member_Pages\FullRecipe.aspx" />
     <Content Include="Member_Pages\SaveAndLoadRecipes.aspx" />
@@ -261,6 +285,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ImageVerifyService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\RecipeSearchWeb\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -292,6 +321,7 @@
     <Compile Include="Member_Pages\Account.aspx.designer.cs">
       <DependentUpon>Account.aspx</DependentUpon>
     </Compile>
+    <Content Include="GetImage.aspx" />
     <Compile Include="Member_Pages\MealPlanner.aspx.cs">
       <DependentUpon>MealPlanner.aspx</DependentUpon>
     </Compile>
@@ -347,6 +377,13 @@
     </Compile>
     <Compile Include="Member_Pages\Nutrition.aspx.designer.cs">
       <DependentUpon>Nutrition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiteMember.master.cs">
+      <DependentUpon>SiteMember.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteMember.master.designer.cs">
+      <DependentUpon>SiteMember.master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Member_Pages\RecipeBrowse.aspx.cs">
@@ -450,6 +487,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\CreateRecipeService\" />
+    <WCFMetadataStorage Include="Connected Services\ImageVerifyService\" />
     <WCFMetadataStorage Include="Connected Services\RecipeSearchWeb\" />
     <WCFMetadataStorage Include="Connected Services\SaveAndLoadRecipeService\" />
   </ItemGroup>
