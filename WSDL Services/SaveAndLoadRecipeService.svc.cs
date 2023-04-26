@@ -9,6 +9,7 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using System.Xml;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
 
@@ -31,15 +32,39 @@ namespace WSDL_Services
 
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
 
-            //Add the recipe info to a list to be written
-            List<RecipeInfo> recipes = ReadRecipesFromXml(fileName);
-            recipes.Add(recipeInfo);
-
-            XmlSerializer serializer = new XmlSerializer(typeof(List<RecipeInfo>));
-            using (FileStream file = new FileStream(filePath, FileMode.Create))
+            if (!IsIdTaken(recipeId.ToString(), fileName))
             {
-                serializer.Serialize(file, recipes);
+                //Add the recipe info to a list to be written
+                List<RecipeInfo> recipes = ReadRecipesFromXml(fileName);
+                recipes.Add(recipeInfo);
+
+                XmlSerializer serializer = new XmlSerializer(typeof(List<RecipeInfo>));
+                using (FileStream file = new FileStream(filePath, FileMode.Create))
+                {
+                    serializer.Serialize(file, recipes);
+                }
             }
+
+            
+        }
+        private bool IsIdTaken(string id, string filename)
+        {
+            string xmlFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, filename);
+
+            if (!File.Exists(xmlFilePath))
+            {
+                return false;
+            }
+
+            XDocument doc = XDocument.Load(xmlFilePath);
+            XElement member = doc.Descendants("RecipeInfo").FirstOrDefault(m => m.Element("Id").Value == id);
+
+            if (member != null)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         /*The ReadRecipesFromXml returns a list of recipe info from an XML File*/

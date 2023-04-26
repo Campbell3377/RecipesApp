@@ -200,11 +200,12 @@ namespace RecipesApp
             int id = 0;
             if (Session["recipeId"] != null) { id = Convert.ToInt32(Session["recipeId"]); }
 
-            string path = "App_Data/savedRecipes/" + user + ".xml";
+            string path = "" + user + ".xml";
 
             if (id != 0)
             {
                 SaveAndLoadRecipeServiceClient saveAndLoadRecipe = new SaveAndLoadRecipeServiceClient();
+                saveAndLoadRecipe.SaveRecipesToXml(id, path);
             }
         }
 

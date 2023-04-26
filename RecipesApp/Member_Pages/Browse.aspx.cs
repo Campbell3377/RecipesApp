@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 using RecipesApp.SaveAndLoadRecipeService;
 
@@ -132,6 +133,26 @@ namespace RecipesApp
                 saveAndLoadRecipe.SaveRecipesToXml(id, path);
             }
 
+        }
+        private bool IsUsernameTaken(string username)
+        {
+            //string user = (string)Session["username"];
+            string xmlFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data/members.xml");
+
+            if (!File.Exists(xmlFilePath))
+            {
+                return false;
+            }
+
+            XDocument doc = XDocument.Load(xmlFilePath);
+            XElement member = doc.Descendants("member").FirstOrDefault(m => m.Element("username").Value == username);
+
+            if (member != null)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }
