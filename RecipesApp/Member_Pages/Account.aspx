@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Account.aspx.cs" Inherits="RecipesApp.Member_Pages.Account" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/SiteMember.Master" AutoEventWireup="true" CodeBehind="Account.aspx.cs" Inherits="RecipesApp.Member_Pages.Account" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MemberContent" runat="server">
         <h2>Saved Recipes</h2>
         <div style="display: flex; flex-wrap: wrap;">
             <asp:Repeater ID="RepeaterSavedRecipes" runat="server">
                 <ItemTemplate>
-                    <div class="recipe-item" style="box-sizing: border-box; margin: 10px; width: calc(33.333% - 20px); text-align: center;">
+                    <div class="recipe-item" style="box-sizing: border-box; margin: 10px; width: 31%; text-align: center;">
                         <h3><%# Eval("Title") %></h3>
                         <asp:Image ID="RecipeImage" runat="server" ImageUrl='<%# Eval("Image") %>' Width="300" />
                         <p>

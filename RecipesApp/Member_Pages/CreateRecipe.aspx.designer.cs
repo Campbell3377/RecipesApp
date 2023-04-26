@@ -51,15 +51,6 @@ namespace RecipesApp
         protected global::System.Web.UI.WebControls.TextBox productId;
 
         /// <summary>
-        /// fileName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox fileName;
-
-        /// <summary>
         /// recipeNameTextBox control.
         /// </summary>
         /// <remarks>
@@ -76,24 +67,6 @@ namespace RecipesApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button AddToRecipe;
-
-        /// <summary>
-        /// loadFileName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox loadFileName;
-
-        /// <summary>
-        /// GetCreatedRecipe control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button GetCreatedRecipe;
 
         /// <summary>
         /// LoadResult control.

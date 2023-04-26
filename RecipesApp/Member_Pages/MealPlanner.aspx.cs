@@ -43,6 +43,8 @@ namespace RecipesApp
             MealPlan mealPlan = new MealPlan();
             string result = "";
             string display = "";
+
+            //Call the mealplanner service and set the mealPlan object
             using (HttpClient client = new HttpClient())
             {
                 HttpResponseMessage response = await client.GetAsync(url);
@@ -53,82 +55,28 @@ namespace RecipesApp
                 }
             }
 
-            display += "<h3>Sunday</h3>";
+            //Add inline styles for the table
+            string tableStyle = "style='border-collapse: collapse; width: 100%;'";
+            string headerStyle = "style='border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2;'";
+            string cellStyle = "style='border: 1px solid #ddd; padding: 8px; text-align: left;'";
 
-            display += "<table><tr><th>Name</th><th>Ready In</th><th>Servings</th><th>Source</th></tr>";
-
-            foreach (Meal meal in mealPlan.Sunday)
+            //Go through each day of the week and display the results to the table
+            foreach (string day in new string[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" })
             {
-                display += "<tr><td>" + meal.Name + "</td><td>" + meal.ReadyInMinutes + "</td><td>" + meal.Servings + "</td><td>" + meal.SourceUrl + "</td></tr>";
+                display += $"<h3>{day}</h3>";
+                display += $"<table {tableStyle}><tr><th {headerStyle}>Name</th><th {headerStyle}>Ready In</th><th {headerStyle}>Servings</th><th {headerStyle}>Source</th></tr>";
+
+                //Get the meals for the current day of the week
+                List<Meal> meals = mealPlan.GetType().GetProperty(day).GetValue(mealPlan) as List<Meal>;
+
+                //Display the meals to the frontend
+                foreach (Meal meal in meals)
+                {
+                    display += $"<tr><td {cellStyle}>{meal.Name}</td><td {cellStyle}>{meal.ReadyInMinutes}</td><td {cellStyle}>{meal.Servings}</td><td {cellStyle}><a href='{meal.SourceUrl}' target='_blank'>View Recipe</a></td></tr>";
+                }
+
+                display += "</table>";
             }
-
-            display += "</table>";
-
-            display += "<h3>Monday</h3>";
-
-            display += "<table><tr><th>Name</th><th>Ready In</th><th>Servings</th><th>Source</th></tr>";
-
-            foreach (Meal meal in mealPlan.Monday)
-            {
-                display += "<tr><td>" + meal.Name + "</td><td>" + meal.ReadyInMinutes + "</td><td>" + meal.Servings + "</td><td>" + meal.SourceUrl + "</td></tr>";
-            }
-
-            display += "</table>";
-
-            display += "<h3>Tuesday</h3>";
-
-            display += "<table><tr><th>Name</th><th>Ready In</th><th>Servings</th><th>Source</th></tr>";
-
-            foreach (Meal meal in mealPlan.Tuesday)
-            {
-                display += "<tr><td>" + meal.Name + "</td><td>" + meal.ReadyInMinutes + "</td><td>" + meal.Servings + "</td><td>" + meal.SourceUrl + "</td></tr>";
-            }
-
-            display += "</table>";
-
-            display += "<h3>Wednesday</h3>";
-
-            display += "<table><tr><th>Name</th><th>Ready In</th><th>Servings</th><th>Source</th></tr>";
-
-            foreach (Meal meal in mealPlan.Wednesday)
-            {
-                display += "<tr><td>" + meal.Name + "</td><td>" + meal.ReadyInMinutes + "</td><td>" + meal.Servings + "</td><td>" + meal.SourceUrl + "</td></tr>";
-            }
-
-            display += "</table>";
-
-            display += "<h3>Thursday</h3>";
-
-            display += "<table><tr><th>Name</th><th>Ready In</th><th>Servings</th><th>Source</th></tr>";
-
-            foreach (Meal meal in mealPlan.Thursday)
-            {
-                display += "<tr><td>" + meal.Name + "</td><td>" + meal.ReadyInMinutes + "</td><td>" + meal.Servings + "</td><td>" + meal.SourceUrl + "</td></tr>";
-            }
-
-            display += "</table>";
-
-            display += "<h3>Friday</h3>";
-
-            display += "<table><tr><th>Name</th><th>Ready In</th><th>Servings</th><th>Source</th></tr>";
-
-            foreach (Meal meal in mealPlan.Friday)
-            {
-                display += "<tr><td>" + meal.Name + "</td><td>" + meal.ReadyInMinutes + "</td><td>" + meal.Servings + "</td><td>" + meal.SourceUrl + "</td></tr>";
-            }
-
-            display += "</table>";
-
-            display += "<h3>Saturday</h3>";
-
-            display += "<table><tr><th>Name</th><th>Ready In</th><th>Servings</th><th>Source</th></tr>";
-
-            foreach (Meal meal in mealPlan.Saturday)
-            {
-                display += "<tr><td>" + meal.Name + "</td><td>" + meal.ReadyInMinutes + "</td><td>" + meal.Servings + "</td><td>" + meal.SourceUrl + "</td></tr>";
-            }
-
-            display += "</table>";
 
             Result.Text = display;
         }

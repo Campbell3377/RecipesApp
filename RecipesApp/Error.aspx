@@ -11,7 +11,7 @@
         You have encountered an error!
     </h2>
     <div>
-        This error page is being displayed to you because of the global event handler!
+        You may have entered wrong information into a text box. Please go back and try again.
     </div>
 </body>
 </html>

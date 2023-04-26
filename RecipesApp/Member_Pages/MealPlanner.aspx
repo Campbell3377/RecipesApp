@@ -1,6 +1,6 @@
-﻿<%@ Page Title="Meal Planner" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MealPlanner.aspx.cs" Inherits="RecipesApp.MealPlanner" Async="true" %>
+﻿<%@ Page Title="Meal Planner" Language="C#" MasterPageFile="~/SiteMember.Master" AutoEventWireup="true" CodeBehind="MealPlanner.aspx.cs" Inherits="RecipesApp.MealPlanner" Async="true" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MemberContent" runat="server">
     <h2><%: Title %>.</h2>
 
     <div>

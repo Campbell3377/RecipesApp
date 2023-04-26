@@ -61,7 +61,7 @@
             <p>Test Case: Use search to find product id, then enter a valid product id and a file name (Ex. test.xml).</p>
 
             <h2>Test Cases (Local Components)</h2>
-            <h3>1. Create User (user control)</h3>
+            <h3>Create User (user control)</h3>
             <p>Test Case: Username(plain string, no special characters), Password (plain string)</p>
 
             <h3>Password hashing and storing member information (DLL)</h3>
@@ -74,10 +74,12 @@
 
             <h3>XML file manipulation</h3>
             <p>Description: searches, adds, and deletes information from an XML file</p>
+            <p>Test Case: The staff page utilizes the xmlManipulation component. You can also go to the service directory and test the xml file manipulation page</p>
             <p>Input: query and filename</p>
 
             <h3>Global.asax file</h3>
-            <p>Test Case: Handles events available to user</p>
+            <p>Description: Handles global error events</p>
+            <p>Test Case: Enter the wrong data type for a textfield or leave a textfield empty</p>
 
         </div>
     </div>
