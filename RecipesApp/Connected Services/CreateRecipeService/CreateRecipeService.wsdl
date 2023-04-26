@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CreateRecipeService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="CreateRecipeService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://webstrar192.fulton.asu.edu/page3/CreateRecipeService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -7,11 +7,11 @@
       <xsd:import schemaLocation="http://webstrar192.fulton.asu.edu/page3/CreateRecipeService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WSDL_Services" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="ICreateRecipeService_SearchProducts_InputMessage">
-    <wsdl:part name="parameters" element="tns:SearchProducts" />
+  <wsdl:message name="ICreateRecipeService_SearchIngredients_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchIngredients" />
   </wsdl:message>
-  <wsdl:message name="ICreateRecipeService_SearchProducts_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SearchProductsResponse" />
+  <wsdl:message name="ICreateRecipeService_SearchIngredients_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchIngredientsResponse" />
   </wsdl:message>
   <wsdl:message name="ICreateRecipeService_AddToRecipe_InputMessage">
     <wsdl:part name="parameters" element="tns:AddToRecipe" />
@@ -26,9 +26,9 @@
     <wsdl:part name="parameters" element="tns:GetCreatedRecipesResponse" />
   </wsdl:message>
   <wsdl:portType name="ICreateRecipeService">
-    <wsdl:operation name="SearchProducts">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICreateRecipeService/SearchProducts" message="tns:ICreateRecipeService_SearchProducts_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICreateRecipeService/SearchProductsResponse" message="tns:ICreateRecipeService_SearchProducts_OutputMessage" />
+    <wsdl:operation name="SearchIngredients">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICreateRecipeService/SearchIngredients" message="tns:ICreateRecipeService_SearchIngredients_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICreateRecipeService/SearchIngredientsResponse" message="tns:ICreateRecipeService_SearchIngredients_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddToRecipe">
       <wsdl:input wsaw:Action="http://tempuri.org/ICreateRecipeService/AddToRecipe" message="tns:ICreateRecipeService_AddToRecipe_InputMessage" />
@@ -41,8 +41,8 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICreateRecipeService" type="tns:ICreateRecipeService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="SearchProducts">
-      <soap:operation soapAction="http://tempuri.org/ICreateRecipeService/SearchProducts" style="document" />
+    <wsdl:operation name="SearchIngredients">
+      <soap:operation soapAction="http://tempuri.org/ICreateRecipeService/SearchIngredients" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -19,13 +19,21 @@ namespace RecipesApp
             }
 
             string staffXmlPath = Server.MapPath("~/App_Data/Staff.xml");
+
+            //Using XML Manipulation component
             XMLManipulation staffXmlManipulation = new XMLManipulation(staffXmlPath);
+
+            //Display the staff members to the frontend
             var staff = staffXmlManipulation.GetAllElements("staffMember");
             StaffRepeater.DataSource = staff;
             StaffRepeater.DataBind();
 
             string xmlFilePath = Server.MapPath("~/App_Data/members.xml");
+
+            //Using XML Manipulation component
             XMLManipulation xmlManipulation = new XMLManipulation(xmlFilePath);
+
+            //Display the members to the frontend
             var members = xmlManipulation.GetAllElements("member");
             MembersRepeater.DataSource = members;
             MembersRepeater.DataBind();
@@ -37,8 +45,11 @@ namespace RecipesApp
             string password = PasswordTextBox.Text;
 
             string staffXmlPath = Server.MapPath("~/App_Data/staff.xml");
+
+            //Using XML Manipulation component
             XMLManipulation xmlManipulation = new XMLManipulation(staffXmlPath);
 
+            //Add the staff member to the XML file
             xmlManipulation.AddElement("staff", "staffMember", "");
             xmlManipulation.AddElement("staffMember", "username", username);
             xmlManipulation.AddElement("staffMember", "password", password);
@@ -49,17 +60,20 @@ namespace RecipesApp
         private bool IsStaffMember()
         {
             HttpCookie cookie = Request.Cookies["loginCookie"];
+
+            //Get the logged in user
             string user = (string)Session["username"];
             string pass = (string)Session["password"];
 
             if (user != null && user != "")
             {
-                //string username = cookie["Username"];
-                //string password = cookie["Password"];
 
                 string staffXmlPath = Server.MapPath("~/App_Data/staff.xml");
+
+                //Using XML Manipulation component
                 XMLManipulation xmlManipulation = new XMLManipulation(staffXmlPath);
 
+                //Find staff members who fit the currently logged in user
                 var staffMembers = xmlManipulation.FindElements($"//staffMember[username='{user}' and password='{pass}']");
 
                 //Check if any matching staff members were found

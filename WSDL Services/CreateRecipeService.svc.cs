@@ -11,30 +11,29 @@ using System.Xml.Serialization;
 
 namespace WSDL_Services
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class CreateRecipeService : ICreateRecipeService
     {
         private string APIKey = "35742efe533b41d683a0fa8d8cb82f85";
 
         /*The Search Producs function will call the Spoonacular API to search for products given a query*/
-        public List<Ingredient> SearchProducts(string query)
+        public List<Ingredient> SearchIngredients(string query)
         {
 
             //Get the product list from Spoonacular
-            string apiUrl = "https://api.spoonacular.com/food/products/search?apiKey=" + APIKey + "&number=10&query=" + query;
+            string apiUrl = "https://api.spoonacular.com/food/ingredients/search?apiKey=" + APIKey + "&number=10&query=" + query;
             string responseJson = new WebClient().DownloadString(apiUrl);
 
             //Add the products to a list to be written
             dynamic response = JsonConvert.DeserializeObject(responseJson);
             List<Ingredient> ingredients = new List<Ingredient>();
 
-            foreach (var product in response.products)
+            foreach (var ingredient in response.results)
             {
                 ingredients.Add(new Ingredient
                 {
-                    Title = product.title,
-                    Id = product.id,
+                    Name = ingredient.name,
+                    Id = ingredient.id,
+                    Image = ingredient.image,
                 });
             }
 
@@ -42,22 +41,31 @@ namespace WSDL_Services
         }
 
         /*The AddToRecipe function will add the created recipe to its own XML file*/
-        public void AddToRecipe(string fileName, int productId)
+        public void AddToRecipe(string fileName, int ingredientId, string recipeName)
         {
             //Get the product information from Spoonacular
-            var url = "https://api.spoonacular.com/food/products/" + productId + "?apiKey=" + APIKey;
+            var url = "https://api.spoonacular.com/food/ingredients/" + ingredientId + "/information?apiKey=" + APIKey;
             var client = new WebClient();
             var json = client.DownloadString(url);
             var recipeInfo = JsonConvert.DeserializeObject<Ingredient>(json);
+            recipeInfo.Name = WebUtility.HtmlDecode(recipeInfo.Name);
 
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
 
             //Get the previous ingredients from the created recipe file
-            List<Ingredient> recipes = GetCreatedRecipes(fileName);
-            recipes.Add(recipeInfo);
+            List<Recipe> recipes = GetCreatedRecipes(fileName);
+            Recipe currentRecipe = recipes.FirstOrDefault(r => r.Name == recipeName);
+
+            if (currentRecipe == null)
+            {
+                currentRecipe = new Recipe { Name = recipeName, Ingredients = new List<Ingredient>() };
+                recipes.Add(currentRecipe);
+            }
+
+            currentRecipe.Ingredients.Add(recipeInfo);
 
             //Add the new updated recipes list to the file
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Ingredient>));
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Recipe>));
             using (FileStream file = new FileStream(filePath, FileMode.Create))
             {
                 serializer.Serialize(file, recipes);
@@ -65,21 +73,21 @@ namespace WSDL_Services
         }
 
         /*The GetCreatedRecipes function will retrieve all the ingredients form the created recipe*/
-        public List<Ingredient> GetCreatedRecipes(string fileName)
+        public List<Recipe> GetCreatedRecipes(string fileName)
         {
             //Open an xml file to write to
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Ingredient>));
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Recipe>));
             using (FileStream file = new FileStream(filePath, FileMode.OpenOrCreate))
             {
                 //Read from the file if it exists and if not return an empty list
                 try
                 {
-                    return (List<Ingredient>)serializer.Deserialize(file);
+                    return (List<Recipe>)serializer.Deserialize(file);
                 }
                 catch (InvalidOperationException)
                 {
-                    return new List<Ingredient>();
+                    return new List<Recipe>();
                 }
             }
         }

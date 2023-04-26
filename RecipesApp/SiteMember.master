@@ -13,8 +13,9 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/Member_Pages/Browse">Browse Recipes</a></li>
-                        <li><a runat="server" href="~/">Your Recipes</a></li>
-                        <li><a runat="server" href="~/">Meal Planning</a></li>
+                        <li><a runat="server" href="~/Member_Pages/MealPlanner">Meal Planning</a></li>
+                        <li><a runat="server" href="~/Member_Pages/CreateRecipe">Create Recipe</a></li>
+                        <li><a runat="server" href="~/Member_Pages/Account">Your Recipes</a></li>
 
                     </ul>
                 </div>

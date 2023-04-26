@@ -1,6 +1,6 @@
-﻿<%@ Page Title="Create Recipe" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CreateRecipe.aspx.cs" Inherits="RecipesApp.CreateRecipe" %>
+﻿<%@ Page Title="Create Recipe" Language="C#" MasterPageFile="~/SiteMember.Master" AutoEventWireup="true" CodeBehind="CreateRecipe.aspx.cs" Inherits="RecipesApp.CreateRecipe" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MemberContent" runat="server">
     <h2><%: Title %>.</h2>
 
     <div>
@@ -22,18 +22,11 @@
         <asp:TextBox ID="productId" runat="server"></asp:TextBox>
         <br />
         <br />
-        <div>File to save to: (must include .xml extension)</div>
-        <asp:TextBox ID="fileName" runat="server"></asp:TextBox>
+        <div>Recipe name:</div>
+        <asp:TextBox ID="recipeNameTextBox" runat="server"></asp:TextBox>
         <br />
         <br />
         <asp:Button ID="AddToRecipe" runat="server" Text="Add to Recipe" OnClick="AddToRecipe_Click" />
-        <br />
-        <br />
-        <div>File to load from: (must include .xml extension)</div>
-        <asp:TextBox ID="loadFileName" runat="server"></asp:TextBox>
-        <br />
-        <br />
-        <asp:Button ID="GetCreatedRecipe" runat="server" Text="Load Created Recipe" OnClick="GetCreatedRecipe_Click" />
         <br />
         <br />
         <asp:Label ID="LoadResult" runat="server" Text=""></asp:Label>

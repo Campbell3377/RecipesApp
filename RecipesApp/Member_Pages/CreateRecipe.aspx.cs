@@ -14,25 +14,35 @@ namespace RecipesApp
     public partial class CreateRecipe: Page
     {
         CreateRecipeServiceClient createRecipe = new CreateRecipeServiceClient();
+        string username = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //Gte the currently logged in user
+            username = Session["username"] as string;
         }
         protected void SearchProductsButton_Click(object sender, EventArgs e)
         {
             string query = search.Text;
 
-            List<Ingredient> products = createRecipe.SearchProducts(query).ToList();
+            //Get a list of products from the service
+            List<Ingredient> ingredients = createRecipe.SearchIngredients(query).ToList();
 
             string display = "";
 
             int i = 1;
 
-            display += "<table><tr><th>Number</th><th>Name</th><th>ID</th></tr>";
+            //Add inline styles for the table
+            string tableStyle = "style='border-collapse: collapse; width: 100%;'";
+            string headerStyle = "style='border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2;'";
+            string cellStyle = "style='border: 1px solid #ddd; padding: 8px; text-align: left;'";
 
-            foreach (Ingredient product in products)
+            display += $"<table {tableStyle}><tr><th {headerStyle}>Number</th><th {headerStyle}>Name</th><th {headerStyle}>ID</th><th {headerStyle}>Image</th></tr>";
+
+            //Display the results from the service call
+            foreach (Ingredient ingredient in ingredients)
             {
-                display += "<tr><td>" + i + "." + "</td><td>" + product.Title + "</td><td>" + product.Id + "</td>";
+                string imageUrl = "https://spoonacular.com/cdn/ingredients_250x250/" + ingredient.Image;
+                display += $"<tr><td {cellStyle}>{i}.</td><td {cellStyle}>{ingredient.Name}</td><td {cellStyle}>{ingredient.Id}</td><td {cellStyle}><img src='{imageUrl}' width='100' /></td></tr>";
                 i++;
             }
 
@@ -41,35 +51,16 @@ namespace RecipesApp
             Result.Text = display;
         }
 
+
+        //Adds a product to a recipe file
         protected void AddToRecipe_Click(object sender, EventArgs e)
         {
-            string file = fileName.Text;
+            string file = username + "_created_recipes.xml";
             int productID = Int32.Parse(productId.Text);
+            string recipeName = recipeNameTextBox.Text;
 
-            createRecipe.AddToRecipe(file, productID);
+            createRecipe.AddToRecipe(file, productID, recipeName);
         }
 
-        protected void GetCreatedRecipe_Click(object sender, EventArgs e)
-        {
-            string file = loadFileName.Text;
-
-            List<Ingredient> ingredients = createRecipe.GetCreatedRecipes(file).ToList();
-
-            string display = "";
-
-            int i = 1;
-
-            display = "<table><tr><th>Number</th><th>Name</th><th>ID</th></tr>";
-
-            foreach (Ingredient ingredient in ingredients)
-            {
-                display += "<tr><td>" + i + "." + "</td><td>" + ingredient.Title + "</td><td>" + ingredient.Id + "</td></tr>";
-                i++;
-            }
-
-            display += "</table>";
-
-            LoadResult.Text = display;
-        }
     }
 }

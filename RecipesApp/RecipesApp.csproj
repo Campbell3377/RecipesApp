@@ -133,9 +133,31 @@
     <Content Include="Connected Services\CreateRecipeService\RecipesApp.CreateRecipeService.Ingredient.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\CreateRecipeService\RecipesApp.CreateRecipeService.Recipe.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\CreateRecipeService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Error.aspx" />
+    <Content Include="Member_Pages\Account.aspx" />
+    <Content Include="Member_Pages\MealPlanner.aspx" />
+    <Content Include="Member_Pages\CreateRecipe.aspx" />
+    <Content Include="CreateUser.ascx" />
+    <Content Include="Member_Pages\Browse.aspx" />
+    <Content Include="Staff_Pages\Staff.aspx" />
+    <Content Include="Staff_Pages\AccessDenied.aspx" />
+    <Content Include="XMLFileUtils.aspx" />
+    <None Include="Connected Services\CreateRecipeService\CreateRecipeService.wsdl" />
+    <None Include="Connected Services\CreateRecipeService\CreateRecipeService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CreateRecipeService\CreateRecipeService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CreateRecipeService\CreateRecipeService2.xsd">
+      <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ImageVerifyService\Service.wsdl" />
     <None Include="Connected Services\ImageVerifyService\Service.xsd">
@@ -189,16 +211,6 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <None Include="Connected Services\CreateRecipeService\CreateRecipeService.wsdl" />
-    <None Include="Connected Services\CreateRecipeService\CreateRecipeService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\CreateRecipeService\CreateRecipeService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\CreateRecipeService\CreateRecipeService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Connected Services\SaveAndLoadRecipeService\SaveAndLoadRecipeService.wsdl" />
     <None Include="Connected Services\SaveAndLoadRecipeService\SaveAndLoadRecipeService.xsd">
       <SubType>Designer</SubType>
@@ -303,6 +315,13 @@
     </Compile>
     <Compile Include="Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member_Pages\Account.aspx.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member_Pages\Account.aspx.designer.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
     </Compile>
     <Content Include="GetImage.aspx" />
     <Compile Include="Member_Pages\MealPlanner.aspx.cs">
